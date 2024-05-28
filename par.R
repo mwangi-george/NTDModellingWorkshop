@@ -18,5 +18,4 @@ par <-      c(R0=2,                 # basic reproduction number
               stop.t=100,             # simulation stop time
               a= exp(3.24),           # maximum egg output from 1 female (Neves et al 2021)
               b=0.25,                 # density-dependent constraint on fecundity (Neves et al 2021)
-              z=50,                   # threshold egg density for heavy infection
               dotx=0)                 # toggle treatments on/off
