@@ -50,20 +50,14 @@ funcs <- list(
     ## calculate prevalence of infection
     p <- (1-(1+(W)/k)^-k)
     
-    ## calculate prevalence of female worm infection
-   # pf <- (1-(1+(W*rho)/k)^-k)*mmat
-    
-    ## prevalence of heavy infection
-  #  ph <- (1-pnbinom((z/a)^(1/b), size = k, mu = W*rho))*mmat
-    
     ## calculate the proportion of infectious snails
-    py <- (mu0+mu1)*R0^R0_weight*N1N2*W*mmat*dd/((mu0+mu1)*R0^R0_weight*N1N2*W*mmat*dd+mu2)
+    py <- mu1*R0^R0_weight*N1N2*W*mmat*dd/(mu1*R0^R0_weight*N1N2*W*mmat*dd+mu2)
     
     ## calculate effective reproduction number
     Re <- (R0/rho)*mmat*dd*(1-py) 
     
     ## ordinary differntial equation
-    dy <- ((R0/rho)*mu2*W*mmat*dd) / ((R0^R0_weight)*N1N2*W*mmat*dd + mu2/(mu0+mu1)) - (mu0+mu1)*W
+    dy <- ((R0/rho)*mu2*W*mmat*dd) / ((R0^R0_weight)*N1N2*W*mmat*dd + mu2/mu1) - mu1*W
     
     return(list(dy,W=W, E=E, p=p, Re=Re, py=py))
     
